@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*.env
+.env
+!.env.example
+.venv/
+env/
+
+# Build artifacts
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Flutter artifacts
+.dart_tool/
+.flutter-plugins*
+flutter_app/build/
+*.iml
+_flutter/
+.vercel/

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JioGenie - Unofficial AI Assistance for Jio</title>
+  
+  <!-- Telecom Assistant Favicon (Custom Signal Transmitter) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2226%22 fill=%22%230057FF%22/><path d=%22M20 28a42 42 0 0 1 60 0M32 40a25 25 0 0 1 36 0%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22 fill=%22none%22/><circle cx=%2250%22 cy=%2254%22 r=%228%22 fill=%22white%22/><path d=%22M50 62v20M36 82h28%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22/></svg>">
+  
+  <!-- Jio Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Highlight.js & KaTeX styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="hljs-theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  
+  <!-- Libraries (React 18, ReactDOM 18, Babel, Marked, Highlight.js, KaTeX, Lucide) -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Firebase App & Analytics -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAn1AxnVcawaKZUWcGYG9tqfqpExvav2bY",
+      authDomain: "jiogenie.firebaseapp.com",
+      projectId: "jiogenie",
+      storageBucket: "jiogenie.firebasestorage.app",
+      messagingSenderId: "107335383664",
+      appId: "1:107335383664:web:a8a10b7f772662ad51d2b5",
+      measurementId: "G-WHJ9QVQE6B"
+    };
+
+    try {
+      const app = initializeApp(firebaseConfig);
+      window.firebaseApp = app;
+      try {
+        const analytics = getAnalytics(app);
+        window.firebaseAnalytics = analytics;
+        window.firebaseLogEvent = logEvent;
+        logEvent(analytics, 'page_view', { page_title: 'JioGenie AI Portal' });
+      } catch (e) {}
+    } catch (e) {
+      console.warn("Firebase initialization notice:", e);
+    }
+  </script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- React Mount Point -->
+  <div id="root">
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; text-align:center; padding:40px; color:#0A2885;">
+      <h2>JioGenie</h2>
+      <p style="font-weight:600; color:#0057FF;">Unofficial AI Assistance for Jio</p>
+      <p style="color:#64748B;">Connecting to React application...</p>
+      <div id="file-hint" style="display:none; max-width:520px; margin:20px auto; padding:16px; border-radius:12px; background:#EEF2F8; color:#334155; font-size:14px; line-height:1.6; border:1px solid #D2DCE8;">
+        💡 <strong>Notice:</strong> To access full live RAG and Groq AI streaming, please run <strong>start.bat</strong> or run <code>python server.py</code> in terminal and visit <strong>http://localhost:8080</strong>.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    if (window.location.protocol === 'file:') {
+      setTimeout(function() {
+        var h = document.getElementById('file-hint');
+        if (h) h.style.display = 'block';
+      }, 1200);
+    }
+  </script>
+
+  <!-- React Application -->
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>
