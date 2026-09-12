@@ -26,3 +26,5 @@ flutter_app/build/
 *.iml
 _flutter/
 .vercel/
+
+.firebase/

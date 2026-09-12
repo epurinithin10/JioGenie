@@ -1,16 +1,29 @@
-﻿{
+{
   "hosting": {
-    "public": ".",
+    "public": "flutter_app/build/web",
     "ignore": [
       "firebase.json",
-      ".firebaserc",
-      "**/.*",
-      "**/node_modules/**",
-      "**/*.py",
-      "**/*.bat",
-      "README.md",
-      ".env",
-      "__pycache__"
+      "**/.*"
+    ],
+    "headers": [
+      {
+        "source": "/flutter_service_worker.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "/version.json",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      }
     ],
     "rewrites": [
       {
